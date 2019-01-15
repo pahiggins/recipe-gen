@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import "./App.css";
-import IngredientAdder from "./components/IngredientAdder";
-import IngredientList from "./components/IngredientList";
-import RecipeList from "./components/RecipeList";
+import Header from './blocks/Header';
+import IngredientAdder from "./blocks/IngredientAdder";
+import IngredientList from "./blocks/IngredientList";
+import RecipeList from "./blocks/RecipeList";
 
 class App extends Component {
   state = {
@@ -10,12 +10,13 @@ class App extends Component {
     recipes: [],
     isLoading: false
   };
+
   render() {
     const { ingredients, recipes, isLoading } = this.state;
 
     return (
-      <div className="App">
-        <h1>Receipe Generator!</h1>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <Header title="Recipe Generator" />
         <IngredientAdder addIngredient={this.addIngredient} />
         <IngredientList
           ingredients={ingredients}
